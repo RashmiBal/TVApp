@@ -3,16 +3,21 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { TvshowsearchListComponent } from './tvshowsearch-list/tvshowsearch-list.component';
+import { TvshowService } from './tvshow/tvshow.service';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    TvshowsearchListComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [TvshowService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
