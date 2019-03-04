@@ -1,8 +1,18 @@
-<p>
-  tvshowsearch-list works!
-</p>
+<h2>
+  TV Show Result:
+</h2>
 <div>
   <div>
-    <span></span>
+    <h3><a [href]='current?.url'>{{current.name}}</a></h3>
+    <span>Runtime: </span><span>{{current?.runtime}} minutes</span><br/>
+    <span>Language: </span><span>{{current?.language}}</span><br/>
+    <span>Genres: </span><span>{{current?.genres}}</span><br/>
+    <span>Days: </span><span>{{current?.days}}</span><br/>
+    <span>Time: </span><span>{{current?.schedule}}</span><br/>
+    <span>{{current?.summary}}</span><br/>
+    <span>{{current?.officialSite}}</span><br/>
+  </div>
+  <div>
+    <img [src]='current?.image'/>
   </div>
 </div>
