@@ -6,16 +6,25 @@ import { AppComponent } from './app.component';
 import { TvshowsearchListComponent } from './tvshowsearch-list/tvshowsearch-list.component';
 import { TvshowService } from './tvshow/tvshow.service';
 import {HttpClientModule} from '@angular/common/http';
+import { TvShowSearchComponent } from './tv-show-search/tv-show-search.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TvshowsearchListComponent
+    TvshowsearchListComponent,
+    TvShowSearchComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
+  ],
+  exports: [
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [TvshowService],
   bootstrap: [AppComponent]

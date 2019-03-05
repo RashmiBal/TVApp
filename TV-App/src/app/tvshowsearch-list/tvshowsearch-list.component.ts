@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { IFavoriteShow } from '../ifavorite-show';
 import { TvshowService } from '../tvshow/tvshow.service';
 
@@ -9,12 +9,12 @@ import { TvshowService } from '../tvshow/tvshow.service';
 })
 export class TvshowsearchListComponent implements OnInit {
 
-  current: IFavoriteShow;
-  constructor(private tvshowService:TvshowService) {
+  @Input() current: IFavoriteShow;
+  constructor() {
    }
 
   ngOnInit() {
-    this.tvshowService.getTVShowsearchlist('American').subscribe(data => this.current = data);
+    
   }
 
 }

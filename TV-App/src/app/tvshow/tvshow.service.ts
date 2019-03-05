@@ -31,8 +31,9 @@ export class TvshowService {
 
   constructor(private httpClient:HttpClient) { }
 
-  getTVShowsearchlist(userSearchText: string){
-    return this.httpClient.get<ITvShowSearchData>(`${environment.baseUrl}api.tvmaze.com/search/shows?q=${userSearchText}&appId=${environment.appId}`).pipe(
+  getTVShowsearchlist(userSearchText: string | number){
+    return this.httpClient.get<ITvShowSearchData>
+    (`${environment.baseUrl}api.tvmaze.com/search/shows?q=${userSearchText}&appId=${environment.appId}`).pipe(
       map(data => this.transformToIFavoriteShow(data))
     )
   }

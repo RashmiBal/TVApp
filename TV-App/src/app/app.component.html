@@ -1,12 +1,10 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}
-  </h1>
-  </div>
-  <div id="Search show box">
-    <p><i>--Search box component will show here--</i></p>
-  </div>
-  <div id="Search result">
-    <app-tvshowsearch-list></app-tvshowsearch-list>
-  </div>
+  <h1>Welcome to {{ title }}</h1>
+</div>
+<div>
+  <app-tv-show-search (searchEvent)="doSearch($event)"></app-tv-show-search>
+</div>
+<div>
+  <app-tvshowsearch-list [current]="currentShow"></app-tvshowsearch-list>
+</div>
