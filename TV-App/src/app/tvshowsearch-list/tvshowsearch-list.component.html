@@ -15,10 +15,11 @@
           <i [ngClass]="current.hide ? 'fa fa-arrow-up' : 'fa fa-arrow-down'" aria-hidden="true"></i></button>
         <div  *ngIf="current.hide"> -->
           <!-- <ul class="list-group"> -->
-            <li class="list-group-item"><span class="text-info">Language:</span> {{current?.language}} </li>
-            <li class="list-group-item"><span class="text-info">Genres:</span> {{current?.genres}} </li>
-            <li class="list-group-item"><span class="text-info">Site:</span> {{current?.officialSite}} </li> 
-            <li class="list-group-item"><span class="text-info">Description:</span> {{current?.summary}} </li>
+            <li class="list-group-item"><span class="text-info">Language: </span>{{current?.language}}</li>
+            <li class="list-group-item"><span class="text-info">Genres: </span>{{current?.genres}}</li>
+            <li class="list-group-item"><span class="text-info">Site: </span><a [href]='current?.officialSite'>{{current?.officialSite}}</a></li> 
+            <li class="list-group-item"><span class="text-info">Description: </span><div [innerHTML]="current?.summary"></div> </li>
+            
           </ul>
          <!--  <div class="border border-white">
             <div><span class="text-info">Description: </span> {{current?.summary}} </div>
