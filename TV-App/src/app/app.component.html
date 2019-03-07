@@ -1,10 +1,8 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>Welcome to {{ title }}</h1>
-</div>
-<div>
+<nav class="navbar navbar-dark mb-4 bg-info">
+  <div class="container">
+      <a href="#" class="navbar-brand"> TV Show </a>
   <app-tv-show-search (searchEvent)="doSearch($event)"></app-tv-show-search>
 </div>
-<div>
-  <app-tvshowsearch-list [current]="currentShow"></app-tvshowsearch-list>
-</div>
+</nav>
+<app-tvshowsearch-list [current]="currentShow"></app-tvshowsearch-list>
+

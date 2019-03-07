@@ -10,4 +10,5 @@ export interface IFavoriteShow {
     schedule: string
     days: string
     image: string
+    
 }
