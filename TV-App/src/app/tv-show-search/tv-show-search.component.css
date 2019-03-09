@@ -1,4 +1,4 @@
-.search-box {
+/* .search-box {
     position: absolute;
     top: 30%;
     left: 50%;
@@ -29,7 +29,7 @@
     height: 55px;
     border-radius: 50%;
     /* background: skyblue; */
-    display: flex;
+   /*  display: flex;
     justify-content: center;
     align-items: center;
     transition: 0.4s;
@@ -45,4 +45,10 @@
     transition: 0.4s;
     line-height: 40px;
     width: 0px;
-}
+} */ 
+
+ .active-purple input[type=text] {
+    border-bottom: 1px solid #ce93d8;
+    box-shadow: 0 1px 0 0 #ce93d8}; 
+
+   
