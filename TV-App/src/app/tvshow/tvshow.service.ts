@@ -80,9 +80,7 @@ export class TvshowService {
 
 
     console.log("retreived "+data[0].show.name)
-    
-    
-
+        //var toRet: IFavoriteShow[]=new Array<IFavoriteShow>();
     var toRet: IFavoriteShow[]=[];
     for (var i=0; (data[i] != undefined) && (data[i].show != undefined)&&((data[i].show != null));i++) {
       console.log("retreived "+data[i].show.name)
