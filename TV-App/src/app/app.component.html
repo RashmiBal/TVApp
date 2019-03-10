@@ -6,7 +6,7 @@
 </nav>
 
 <app-tvshowsearch-list *ngIf="currentShow" [current]="currentShow"></app-tvshowsearch-list>
-<p *ngIf="!currentShow"> No shows to display!</p>
+
 
 <app-tvshowsearch-list *ngFor="let currentShow of showsArray" [current]="currentShow"></app-tvshowsearch-list>
 
