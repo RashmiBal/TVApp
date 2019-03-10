@@ -4,5 +4,9 @@
   <app-tv-show-search (searchEvent)="doSearch($event)"></app-tv-show-search>
 </div>
 </nav>
-<app-tvshowsearch-list [current]="currentShow"></app-tvshowsearch-list>
+
+<app-tvshowsearch-list *ngIf="currentShow" [current]="currentShow"></app-tvshowsearch-list>
+
+
+<app-tvshowsearch-list *ngFor="let currentShow of showsArray" [current]="currentShow"></app-tvshowsearch-list>
 
