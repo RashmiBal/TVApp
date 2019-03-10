@@ -4,27 +4,6 @@ import {environment} from './../../../src/environments/environment'
 import { IFavoriteShow } from '../ifavorite-show';
 import {map} from 'rxjs/operators';
 
-/*
-interface ITvShowSearchData{
-  0:{  
-    show: {
-      name: string
-      summary: string
-      runtime: number
-      officialSite: string
-      url: string
-      language: string
-      genres: [string]
-      image: {
-        medium: string}
-      schedule: {
-        time: string, 
-        days: [string]
-      }
-    } 
-  }
-}*/
-
 interface ITvShowSearchData{
   shows: Array<Show>;
 }
