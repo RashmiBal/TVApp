@@ -4,27 +4,6 @@ import {environment} from './../../../src/environments/environment'
 import { IFavoriteShow } from '../ifavorite-show';
 import {map} from 'rxjs/operators';
 
-/*
-interface ITvShowSearchData{
-  0:{  
-    show: {
-      name: string
-      summary: string
-      runtime: number
-      officialSite: string
-      url: string
-      language: string
-      genres: [string]
-      image: {
-        medium: string}
-      schedule: {
-        time: string, 
-        days: [string]
-      }
-    } 
-  }
-}*/
-
 interface ITvShowSearchData{
   shows: Array<Show>;
 }
@@ -61,12 +40,10 @@ export class TvshowService {
     let retreivedObservable  = this.httpClient.get<ITvShowSearchData>
     (`${environment.baseUrl}api.tvmaze.com/search/shows?q=${userSearchText}&appId=${environment.appId}`);
 
-   //retreivedObservable.subscribe(x => console.log("retreived = "+x[0].show.name)); 
-//    retreivedObservable.pipe(map(x => console.log("retreived = "+x[0].show.name))); 
-//   return retreivedObservable.pipe(map(x => this.transformToIFavoriteShow(x))) 
+    // return retreivedObservable.pipe(map(x => this.transformToIFavoriteShow(x))) // SINGLE result saved for reference
    return retreivedObservable.pipe(map(x => this.transformToIFavoriteShowsArray(x))) 
 
-/* ORIGINAL--
+    /* ORIGINAL working as reference
     return this.httpClient.get<ITvShowSearchData>
     (`${environment.baseUrl}api.tvmaze.com/search/shows?q=${userSearchText}&appId=${environment.appId}`).pipe(
       map(data => this.transformToIFavoriteShow(data))
@@ -77,10 +54,8 @@ export class TvshowService {
   private transformToIFavoriteShowsArray(data: ITvShowSearchData): Array<IFavoriteShow>{
 
     if (data[0] == undefined) return null;
-
-
     console.log("retreived "+data[0].show.name)
-        //var toRet: IFavoriteShow[]=new Array<IFavoriteShow>();
+    //var toRet: IFavoriteShow[]=new Array<IFavoriteShow>();
     var toRet: IFavoriteShow[]=[];
     for (var i=0; (data[i] != undefined) && (data[i].show != undefined)&&((data[i].show != null));i++) {
       console.log("retreived "+data[i].show.name)
@@ -88,8 +63,6 @@ export class TvshowService {
       if (data[i].show == undefined) continue;
       if (data[i].show.image == null) continue;
       if (data[i].show.image.medium == null) continue;
-
-      
 
     toRet.push({
       name: data[i].show.name,
@@ -105,28 +78,25 @@ export class TvshowService {
     });
   }
 
-
-
-    
     return toRet;
 }
 
+// SINGLE result saved for reference
+// private transformToIFavoriteShow(data: ITvShowSearchData): IFavoriteShow{
 
-private transformToIFavoriteShow(data: ITvShowSearchData): IFavoriteShow{
+//     if (data[0] == undefined) return null;
 
-    if (data[0] == undefined) return null;
-
-    return {
-      name: data[0].show.name,
-      summary: data[0].show.summary,
-      runtime: data[0].show.runtime,
-      officialSite: data[0].show.officialSite,
-      url: data[0].show.url,
-      language: data[0].show.language,
-      schedule: data[0].show.schedule.time,
-      days: data[0].show.schedule.days[0],
-      genres: data[0].show.genres[0],
-      image: data[0].show.image.medium
-    }
-}
+//     return {
+//       name: data[0].show.name,
+//       summary: data[0].show.summary,
+//       runtime: data[0].show.runtime,
+//       officialSite: data[0].show.officialSite,
+//       url: data[0].show.url,
+//       language: data[0].show.language,
+//       schedule: data[0].show.schedule.time,
+//       days: data[0].show.schedule.days[0],
+//       genres: data[0].show.genres[0],
+//       image: data[0].show.image.medium
+//     }
+// }
 }
